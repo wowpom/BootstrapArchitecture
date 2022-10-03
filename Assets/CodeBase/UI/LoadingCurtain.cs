@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections;
-using CodeBase.Infrastructure;
+﻿using System.Collections;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace CodeBase.UI
 {
+    [RequireComponent(typeof(CanvasGroup))]
     public class LoadingCurtain : MonoBehaviour
     {
         [SerializeField] private CanvasGroup _loadingCanvas;
 
         private void Awake()
         {
+            _loadingCanvas = GetComponent<CanvasGroup>();
             DontDestroyOnLoad(gameObject);
         }
 

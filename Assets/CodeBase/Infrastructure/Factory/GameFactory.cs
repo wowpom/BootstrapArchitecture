@@ -35,14 +35,14 @@ namespace CodeBase.Infrastructure.Factory
 
         private GameObject InstantiateRegistered(string prefabPath, Vector3 at)
         {
-            GameObject gameObject = _assets.Instantiate(HeroPath);
+            GameObject gameObject = _assets.Instantiate(prefabPath , at);
             RegisteredProgressWatchers(gameObject);
             return gameObject;
         }
         
         private GameObject InstantiateRegistered(string prefabPath)
         {
-            GameObject gameObject = _assets.Instantiate(HeroPath);
+            GameObject gameObject = _assets.Instantiate(prefabPath);
             RegisteredProgressWatchers(gameObject);
             return gameObject;
         }

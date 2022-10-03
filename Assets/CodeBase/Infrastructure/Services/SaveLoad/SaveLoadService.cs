@@ -23,6 +23,7 @@ namespace CodeBase.Infrastructure.Services.SaveLoad
                 progressWriter.UpdateProgress(_progressService.PlayerProgress);
             
             PlayerPrefs.SetString(ProgressKey, _progressService.PlayerProgress.ToJson());
+            PlayerPrefs.Save();
         }
 
         public PlayerProgress LoadProgress() =>

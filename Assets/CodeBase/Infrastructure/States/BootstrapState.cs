@@ -36,9 +36,9 @@ namespace CodeBase.Infrastructure.States
         {
             _services.RegisterSingle(InputService());
             _services.RegisterSingle<IAsset>(new AssetProvider());
+            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAsset>()));
             _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService( _services.Single<IGameFactory>(), _services.Single<IPersistentProgressService>()));
-            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAsset>()));
         }
 
         public void Exit()

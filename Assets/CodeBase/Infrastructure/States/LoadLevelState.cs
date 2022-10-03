@@ -1,5 +1,4 @@
 ﻿using CodeBase.CameraLogic;
-using CodeBase.Data;
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.UI;
@@ -54,9 +53,7 @@ namespace CodeBase.Infrastructure.States
         private void InitGameWorld()
         {
             GameObject hero = _gameFactory.CreateHero(GameObject.FindGameObjectWithTag(InitialPoint));
-
             _gameFactory.CreateHud();
-
             CameraFollow(hero);
         }
 
@@ -64,6 +61,5 @@ namespace CodeBase.Infrastructure.States
             => Camera.main
                 .GetComponent<CameraFollow>()
                 .Follow(hero);
-
     }
 }
